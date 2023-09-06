@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800&display=swap');
+
+:root {
+
+  --ff-primary: 'Sansita', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-primary: #1B2223;
+  --color-secondary: #3A4F50;
+  --color-tertiary: #0EF6CC;
+  --color-quaternary: #F4FEFD;
+  
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--ff-primary);
+}
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+body {
+  background-color: var(--color-quaternary);
+}
+

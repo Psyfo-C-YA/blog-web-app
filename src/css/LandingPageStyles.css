@@ -1,0 +1,90 @@
+@import '../index.css';
+
+.landing-page__div {
+    height: 100vh;
+}
+
+.split-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 5rem;
+}
+
+.split-screen__half {
+    flex: 1;
+    margin: 0 5rem;
+    color: var(--color-secondary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-padding {
+    padding: 0 1.5rem;
+}
+
+.split-screen-img {
+    width: 30rem;
+   
+    height: 25rem;
+}
+
+.split-screen-button {
+    margin-left: 1.5rem;
+
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px var(--color-quaternary);
+   }
+
+   .split-screen-button:hover{
+    color: var(--color-quaternary);
+   }
+   
+   .split-screen-button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, var(--color-secondary) 0%, var(--color-secondary) 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .split-screen-button:hover::before {
+    width: 9em;
+   }
+
+   .split-screen-secondary-button {
+        margin-left: 1.5rem;
+       background-color: var(--color-primary);
+       color: var(--color-quaternary);
+        width: 9em;
+        height: 3em;
+        border-radius: 30em;
+        font-size: 15px;
+        font-family: inherit;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 6px 6px 12px #c5c5c5,
+                    -6px -6px 12px var(--color-quaternary);
+   }
+
+ 
