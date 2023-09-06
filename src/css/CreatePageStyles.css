@@ -1,0 +1,13 @@
+.text-input{
+    width: 800px;
+    height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    border: none !important;
+    background-color: #f3f4f6;
+    margin-bottom: 20px;
+
+}
