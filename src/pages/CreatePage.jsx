@@ -1,9 +1,13 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 // import PropTypes from 'prop-types'
 
 const CreatePage = () => {
   return (
-    <div>Create Page</div>
+    <>
+    <Navbar/>
+    Create Page
+    </>
   )
 }
 

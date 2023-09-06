@@ -1,0 +1,12 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem
+}
+
+.navbar__links {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
