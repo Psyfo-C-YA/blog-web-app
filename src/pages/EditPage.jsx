@@ -1,9 +1,13 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 // import PropTypes from 'prop-types'
 
 const EditPage = () => {
   return (
-    <div>Edit Page</div>
+    <>
+      <Navbar/>
+      Edit Page
+    </>
   )
 }
 
