@@ -1,0 +1,32 @@
+{
+    "records": [
+      {
+        "title": "Sample Title 1",
+        "description": "This is a sample description for record 1.",
+        "author": "John Doe",
+        "date": "2023-09-06",
+        "image": "image1.jpg",
+        "image_caption": "Image 1 Caption",
+        "body" : "hbsjdjknkbhcbsnklmsbxcjkksxc hbs"
+      },
+      {
+        "title": "Sample Title 2",
+        "description": "This is a sample description for record 2.",
+        "author": "Jane Smith",
+        "date": "2023-09-07",
+        "image": "image2.jpg",
+        "image_caption": "Image 2 Caption",
+        "body" : "hbsjdjknkbhcbsnklmsbxcjkksxc hbs"
+      },
+      {
+        "title": "Sample Title 3",
+        "description": "This is a sample description for record 3.",
+        "author": "Bob Johnson",
+        "date": "2023-09-08",
+        "image": "image3.jpg",
+        "image_caption": "Image 3 Caption",
+        "body" : "hbsjdjknkbhcbsnklmsbxcjkksxc hbs"
+      }
+    ]
+  }
+  
