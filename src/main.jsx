@@ -8,24 +8,23 @@ import EditPage from './pages/EditPage.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: < LandingPage/>,
+    element: <LandingPage/>,
     // errorElement: < />,
   },
   {
     path: '/createPage',
-    element: < CreatePage/>,
+    element: <CreatePage/>,
     // errorElement: < />,
   },
   {
     path: '/editPage',
-    element: < EditPage/>,
+    element: <EditPage/>,
     // errorElement: < />,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <RouterProvider router={router} />
   </React.StrictMode>,
 )

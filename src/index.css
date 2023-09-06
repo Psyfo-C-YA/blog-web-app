@@ -2,7 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  --color-primary: #1B2223;
+  --color-secondary: #3A4F50;
+  --color-tertiary: #0EF6CC;
+  --color-quaternary: #F4FEFD;
   
 
   font-synthesis: none;
@@ -27,7 +30,7 @@ body {
 }
 
 body {
-  background-color: var();
+  background-color: var(--color-quaternary);
 }
 
 
