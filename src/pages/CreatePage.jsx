@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Navbar from "../components/Navbar";
-import axios from "axios";
+
 // import PropTypes from 'prop-types'
 import "../css/CreatePageStyles.css";
 const CreatePage = () => {
