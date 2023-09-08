@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import CreatePage from './pages/CreatePage.jsx'
 import EditPage from './pages/EditPage.jsx'
 import Navbar from './components/Navbar'
+import ReadMorePage from './pages/ReadMorePage'
+
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: '/editPage',
     element: <EditPage/>,
+    // errorElement: < />,
+  },
+  {
+    path: '/readMorePage',
+    element: <ReadMorePage/>,
     // errorElement: < />,
   },
 ]);

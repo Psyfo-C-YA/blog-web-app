@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Navbar from "../components/Navbar";
-
+import axios from "axios";
 // import PropTypes from 'prop-types'
 import "../css/CreatePageStyles.css";
 const CreatePage = () => {
@@ -41,6 +41,7 @@ const CreatePage = () => {
   function handleBodyChange(e) {
     setBody(e.target.value);
   }
+
   function handleChange(e) {
     const value = e.target.value;
     setRecords({
@@ -51,30 +52,43 @@ const CreatePage = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     const dataSet = {
-      id: Math.random(),
+      // id: Math.random(),
       title: title,
       description: description,
       author: author,
       date: date,
-      img: img,
+      image: img,
       img_caption: img_caption,
       body: body,
     };
-    await fetch("http://localhost:3000/records", {
-      method: "POST",
-      body: JSON.stringify(dataSet),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    axios
+      .post("http://localhost:3000/records", dataSet)
+      .then((res) => {
+        console.log(res.data);
+        alert("Blog data save!!");
+        if (res.ok) {
+          alert("Blog data save!!");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      setTitle("");
+      setDescription("");
+      setAuthor("");
+      setDate("");
+      setImg("");
+      setImgCaption("");
+      setBody("");
   };
+  
   return (
     <>
       <Navbar />
       <div className="container">
         <h1 className="center-x">Creating a Blog</h1>
         <div className="container-2">
-          <form onSubmit={handleAdd}>
+          <form onSubmit={handleAdd} id="create-form">
             <h4>Title</h4>
             <input
               type="text"
