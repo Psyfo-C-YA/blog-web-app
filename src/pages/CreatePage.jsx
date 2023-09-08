@@ -41,6 +41,7 @@ const CreatePage = () => {
   function handleBodyChange(e) {
     setBody(e.target.value);
   }
+
   function handleChange(e) {
     const value = e.target.value;
     setRecords({
@@ -56,35 +57,38 @@ const CreatePage = () => {
       description: description,
       author: author,
       date: date,
-      img: img,
+      image: img,
       img_caption: img_caption,
       body: body,
     };
-    const res =  axios.post('http://localhost:3000/records', dataSet)
-            .then((res) => {
-                console.log(res.data)
-                alert("Blog data save!!");
-            }).catch((error) => {
-                console.log(error)
-            });
-   /*const res = await fetch("http://localhost:3000/records", {
-      method: "POST",
-      body: JSON.stringify(dataSet),
-      headers: {
-        "content-type": "application/json",
-      },
-    });*/
-    if(res.ok) {
-      alert("Blog data save!!");
-    }
+    axios
+      .post("http://localhost:3000/records", dataSet)
+      .then((res) => {
+        console.log(res.data);
+        alert("Blog data save!!");
+        if (res.ok) {
+          alert("Blog data save!!");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      setTitle("");
+      setDescription("");
+      setAuthor("");
+      setDate("");
+      setImg("");
+      setImgCaption("");
+      setBody("");
   };
+  
   return (
     <>
       <Navbar />
       <div className="container">
         <h1 className="center-x">Creating a Blog</h1>
         <div className="container-2">
-          <form onSubmit={handleAdd}>
+          <form onSubmit={handleAdd} id="create-form">
             <h4>Title</h4>
             <input
               type="text"
@@ -165,10 +169,3 @@ const CreatePage = () => {
 // CreatePage.propTypes = {}
 
 export default CreatePage;
-/*
-axios.post('http://localhost:4000/users/create', userObject)
-            .then((res) => {
-                console.log(res.data)
-            }).catch((error) => {
-                console.log(error)
-            });*/
