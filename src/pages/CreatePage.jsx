@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Navbar from "../components/Navbar";
-
+import axios from "axios";
 // import PropTypes from 'prop-types'
 import "../css/CreatePageStyles.css";
 const CreatePage = () => {
@@ -60,13 +60,23 @@ const CreatePage = () => {
       img_caption: img_caption,
       body: body,
     };
-    await fetch("http://localhost:3000/records", {
+    const res =  axios.post('http://localhost:3000/records', dataSet)
+            .then((res) => {
+                console.log(res.data)
+                alert("Blog data save!!");
+            }).catch((error) => {
+                console.log(error)
+            });
+   /*const res = await fetch("http://localhost:3000/records", {
       method: "POST",
       body: JSON.stringify(dataSet),
       headers: {
         "content-type": "application/json",
       },
-    });
+    });*/
+    if(res.ok) {
+      alert("Blog data save!!");
+    }
   };
   return (
     <>
@@ -155,3 +165,10 @@ const CreatePage = () => {
 // CreatePage.propTypes = {}
 
 export default CreatePage;
+/*
+axios.post('http://localhost:4000/users/create', userObject)
+            .then((res) => {
+                console.log(res.data)
+            }).catch((error) => {
+                console.log(error)
+            });*/
