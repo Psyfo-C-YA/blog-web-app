@@ -64,8 +64,6 @@ const CreatePage = () => {
     axios
       .post("http://localhost:3000/records", dataSet)
       .then((res) => {
-        console.log(res.data);
-        alert("Blog data save!!");
         if (res.ok) {
           alert("Blog data save!!");
         }
@@ -81,7 +79,7 @@ const CreatePage = () => {
       setImgCaption("");
       setBody("");
   };
-  
+
   return (
     <>
       <Navbar />
