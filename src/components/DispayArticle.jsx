@@ -31,7 +31,7 @@ const DispayArticle = ({ ArticleData }) => {
         {/* <Link to={"/readMorePage"}</Link> */}
         <NavLink
           to={{
-            pathname: "/readMorePage",
+            pathname: `/readMorePage/${ArticleData.id}`,
             state: { Article: ArticleData },
           }}
           className={"articles__button"}
@@ -58,7 +58,7 @@ const DispayArticle = ({ ArticleData }) => {
           </svg>
         </NavLink>
 
-        <button onClick={onEdit}>Edit</button>
+        
         <NavLink
           to={{
             pathname: "/editPage",

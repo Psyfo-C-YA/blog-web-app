@@ -3,26 +3,18 @@ import "../css/LandingPageStyles.css";
 import Navbar from "../components/Navbar";
 import landingPageImg from "../assets/images/milad-fakurian-oWrRKdwi5xk-unsplash.jpg";
 import DisplayPage from "./DisplayPage";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import ReadMorePage from "./ReadMorePage";
+// import ReadMorePage from "./ReadMorePage";
 import { useNavigate } from "react-router-dom";
-
+import { ArticleDataContext } from "../main";
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-  const [ArticleData, setArticleData] = useState([]);
-  const [readClicked, setReadClicked] = useState(false);
+  const navigate =  useNavigate();
+  // const [ArticleData, setArticleData] = useState([]);
+  const { ArticleData, setArticleData } = useContext(ArticleDataContext);
+  // const [readClicked, setReadClicked] = useState(false);
   const [featuredArticles, setFeaturedArticles] = useState(false);
-
-  
-
-  // const fetchArticles = async()=>{
-  //   const res = await fetch('http://localhost:3000/records')
-  //   const data = await res.json()
-
-  //   return data;
-  // }
 
   const fetchArticles = async () => {
     try {
@@ -69,8 +61,16 @@ const LandingPage = () => {
             explore diverse musical genres, artists, and playlists that'll make
             your day.
           </p>
-          <button className="split-screen-button"  onClick={() => setFeaturedArticles(!featuredArticles)}>Featured articles</button>
-          <button className="split-screen-secondary-button" onClick={() => navigate("/createPage")}>
+          <button
+            className="split-screen-button"
+            onClick={() => setFeaturedArticles(!featuredArticles)}
+          >
+            Featured articles
+          </button>
+          <button
+            className="split-screen-secondary-button"
+            onClick={() => navigate("/createPage")}
+          >
             Create articles
           </button>
         </div>
@@ -91,9 +91,11 @@ const LandingPage = () => {
       </div> */}
 
       {/* Step 3: Conditionally render ReadMorePage based on readClicked state */}
-      {featuredArticles &&  <div className="articles">
-        <DisplayPage ArticleData={ArticleData} />
-      </div>}
+      {featuredArticles && (
+        <div className="articles">
+          <DisplayPage ArticleData={ArticleData} />
+        </div>
+      )}
     </>
   );
 };
