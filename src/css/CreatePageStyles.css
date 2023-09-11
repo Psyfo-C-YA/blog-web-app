@@ -1,41 +1,90 @@
-.container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2%;
-}
-h1  {
-    text-align: center;
-}
-.container-2 {
-    margin-top:5%;
-}
-.text-input{
-    width: 800px;
-    height: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: 18px;
-    border: none !important;
-    background-color: #f3f4f6;
-    margin-bottom: 20px;
 
-}
-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 30px;
-}
-.text-area {
-    width: 800px;
-    height: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+  .container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    min-height: 100vh; /* Center vertically */
+  }
+  
+  .container-2 {
+    background-color: var(--color-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    width: 700px;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 100%; 
+    text-align: center;/* Adjust the max-width as needed */
+  }
+  
+  .center-x {
+    text-align: center;
+  }
+  
+
+  
+  .text-input {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid var(--color-tertiary);
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    color: var(--color-primary);
+  }
+  
+  .text-input:focus {
+    outline: none;
+    border-color: var(--color-quaternary);
+  }
+  
+  .text-area {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid var(--color-tertiary);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    color: var(--color-primary);
+  }
+  
+  .text-area:focus {
+    outline: none;
+    border-color: var(--color-quaternary);
+  }
+  
+  button[type="submit"] {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     font-size: 18px;
-    border: none !important;
-    background-color: #f3f4f6;
-    margin-bottom: 20px;
-}
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--color-quaternary);
+  }
+  
+  img {
+    max-width: 200px;
+    height: 200px ;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
