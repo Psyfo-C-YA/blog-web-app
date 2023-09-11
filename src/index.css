@@ -38,5 +38,7 @@ a {
 
 body {
   background-color: var(--color-quaternary);
+  color: var(--color-primary);
 }
+
 

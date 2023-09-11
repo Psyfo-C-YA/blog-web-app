@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+h1  {
+    text-align: center;
+}
+.container-2 {
+    margin-top:5%;
+}
+.text-input{
+    width: 800px;
+    height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    border: none !important;
+    background-color: #f3f4f6;
+    margin-bottom: 20px;
+
+}
+img {
+    width: 90px;
+    height: 90px;
+    border-radius: 30px;
+}
+.text-area {
+    width: 800px;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    border: none !important;
+    background-color: #f3f4f6;
+    margin-bottom: 20px;
+}
