@@ -10,6 +10,11 @@
 
 }
 
+.articles__content {
+    color: var(--color-secondary);
+    width: 20rem;
+}
+
 .articles__split-screen__half {
     flex: 1;
     margin: 0 5rem;

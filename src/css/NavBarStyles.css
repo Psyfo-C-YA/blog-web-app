@@ -1,8 +1,15 @@
 .navbar {
-    display: flex;
+    position: fixed;
+    /* This makes the navbar stay fixed at the top of the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1.5rem
+    padding: 1.5rem;
+
 }
 
 .navbar__links {

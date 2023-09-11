@@ -5,7 +5,6 @@ import LandingPage from "./pages/LandingPage.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreatePage from "./pages/CreatePage.jsx";
 import EditPage from "./pages/EditPage.jsx";
-import Navbar from "./components/Navbar";
 import ReadMorePage from "./pages/ReadMorePage";
 import { createContext, useContext, useState } from "react";
 

@@ -1,17 +1,16 @@
+import DispayArticle from "../components/DispayArticle";
 
-import DispayArticle from "../components/DispayArticle"
-
-const DisplayPage = ({ArticleData}) => {
+const DisplayPage = ({ ArticleData }) => {
   return (
     <div>
-       <h1>Featured articles</h1>
+      <h1>Featured articles</h1>
       <ul>
         {ArticleData.map((article) => (
           <DispayArticle key={article.id} ArticleData={article} />
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default DisplayPage
+export default DisplayPage;

@@ -1,24 +1,14 @@
 // import IconButton from '@mui/material/IconButton';
 // import EditIcon from '@mui/icons-material/Edit';
 // import DeleteIcon from '@mui/icons-material/Delete';
-import { redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "../css/RetrievedArticlesStyles.css";
 
 const DispayArticle = ({ ArticleData }) => {
-  const onDelete = (id) => {};
-  const onEdit = (id) => {
-    redirect("/editPage", id);
-  };
   return (
-    //for correct naming to
-    /** 
-     "id": "title": "description": "author": "date": "image": "image_caption": "body": 
-    */
     <div className="articles__split-screen">
       <div className="articles__content">
         <h3> {ArticleData.title}</h3>
-
         <p>
           {" "}
           by <b>{ArticleData.author}</b> on <b>{ArticleData.date}</b>{" "}
@@ -32,7 +22,6 @@ const DispayArticle = ({ ArticleData }) => {
         <NavLink
           to={{
             pathname: `/readMorePage/${ArticleData.id}`,
-            state: { Article: ArticleData },
           }}
           className={"articles__button"}
         >
@@ -56,16 +45,6 @@ const DispayArticle = ({ ArticleData }) => {
               fill="white"
             ></path>
           </svg>
-        </NavLink>
-
-        
-        <NavLink
-          to={{
-            pathname: "/editPage",
-            state: { Article: ArticleData },
-          }}
-        >
-          Edit
         </NavLink>
       </div>
 
