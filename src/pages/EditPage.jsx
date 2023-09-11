@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ArticleDataContext } from "../main";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 
 import Navbar from '../components/Navbar'
 // import PropTypes from 'prop-types'
@@ -16,6 +17,10 @@ const [date, setDate] = useState(new Date());
 const [img, setImg] = useState("");
 const [img_caption, setImgCaption] = useState("");
 const [body, setBody] = useState("");
+
+const [ArticleData, setArticleData] = useState([]);
+  const { articleId } = useParams(); // Get the articleId from the URL parameters
+  const navigate = useNavigate();
 
 function handleTitleChange(e) {
   setTitle(e.target.value);
@@ -60,18 +65,20 @@ const handleAdd = async (e) => {
     title: title,
     description: description,
     author: author,
-    date: date,
+    // date: date,
     image: img,
     img_caption: img_caption,
     body: body,
   };
   axios
-    .post("http://localhost:3000/records", dataSet)
+    .put(`http://localhost:3000/records/${articleId}`, dataSet)
     .then((res) => {
       console.log(res.data);
       alert("Blog data save!!");
+      navigate("/");
       if (res.ok) {
         alert("Blog data save!!");
+        
       }
     })
     .catch((error) => {
@@ -86,9 +93,7 @@ const handleAdd = async (e) => {
     setBody("");
 };
 
-const [ArticleData, setArticleData] = useState([]);
-  const { articleId } = useParams(); // Get the articleId from the URL parameters
-  const navigate = useNavigate();
+
 
   const fetchArticles = async () => {
     try {
@@ -109,18 +114,38 @@ const [ArticleData, setArticleData] = useState([]);
     const getArticleFromSever = async () => {
       const ArticleFromSever = await fetchArticles();
       setArticleData(ArticleFromSever);
-      console.log(ArticleFromSever);
-    };
+      // updateUseStateValues();
+
+
+        setTitle(ArticleData.title);
+        setDescription(ArticleData.description);
+        setAuthor(ArticleData.author);
+        // setDate(data.date);
+        setImg(ArticleData.image);
+        setImgCaption(ArticleData.image_caption);
+        setBody(ArticleData.body);
+    }
 
     getArticleFromSever();
   }, []);
+
+  const updateUseStateValues = () =>{
+        setTitle(ArticleData.title);
+        setDescription(ArticleData.description);
+        setAuthor(ArticleData.author);
+        // setDate(data.date);
+        setImg(ArticleData.image);
+        setImgCaption(ArticleData.image_caption);
+        setBody(ArticleData.body);
+   
+  }
 
 
 return (
   <>
     <Navbar />
     <div className="container">
-      <h1 className="center-x">Creating a Blog</h1>
+      <h1 className="center-x">Creating a Blog </h1>
       <div className="container-2">
         <form onSubmit={handleAdd} id="create-form">
           <h4>Title</h4>
@@ -150,14 +175,14 @@ return (
             value={author}
             onChange={handleAuthorChange}
           ></input>
-          <h4>Date</h4>
+          {/* <h4>Date</h4>
           <input
             type="date"
             name="date"
             className="text-input"
             value={date}
             onChange={handleDateChange}
-          ></input>
+          ></input> */}
           <h4>image</h4>
           <input
             type="file"
@@ -188,7 +213,7 @@ return (
             rows={30}
             onChange={handleBodyChange}
           />
-
+          <NavLink to="/" />
           <div>
             <br></br>
             <button type="submit">Submit</button>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 
 const ReadMorePage = () => {
@@ -55,6 +56,7 @@ const ReadMorePage = () => {
   // "image":
   return (
     <>
+    <Navbar />
       <div className="readMore">
         <h1>Title: {ArticleData.title}</h1>
         <h1>Description: {ArticleData.description}</h1>
