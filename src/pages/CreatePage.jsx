@@ -112,6 +112,7 @@ const CreatePage = () => {
               <input
                 type="text"
                 name="author"
+                
                 className="text-input"
                 placeholder=""
                 value={author}
@@ -125,14 +126,20 @@ const CreatePage = () => {
                 value={date}
                 onChange={handleDateChange}
               />
-              <h4>Image</h4>
-              <input
-                type="file"
-                name="img"
-                accept="image/*"
-                defaultValue={img}
-                onChange={handleImgInputChange}
-              />
+            <h4>Image</h4>
+<label htmlFor="file-input" className="file-label">
+  Upload
+</label>
+<input
+  type="file"
+  id="file-input"
+  name="img"
+  accept="image/*"
+  className="file-input"
+  defaultValue={img}
+  onChange={handleImgInputChange}
+  style={{ display: "none" }}
+/>
               <br />
               <br />
               {img && <img src={img} alt="Selected" />}
@@ -151,7 +158,7 @@ const CreatePage = () => {
                 name="body"
                 value={body}
                 cols={20}
-                rows={2} // Reduced rows for better visibility in this example
+                rows={5} // Reduced rows for better visibility in this example
                 onChange={handleBodyChange}
               />
 
