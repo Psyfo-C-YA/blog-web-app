@@ -10,65 +10,37 @@ import Navbar from '../components/Navbar'
 
 const EditPage = () => {
   const [records, setRecords] = useState("");
-const [title, setTitle] = useState("");
-const [description, setDescription] = useState("");
-const [author, setAuthor] = useState("");
-const [date, setDate] = useState(new Date());
-const [img, setImg] = useState("");
-const [img_caption, setImgCaption] = useState("");
-const [body, setBody] = useState("");
+
 
 const [ArticleData, setArticleData] = useState([]);
   const { articleId } = useParams(); // Get the articleId from the URL parameters
   const navigate = useNavigate();
 
-function handleTitleChange(e) {
-  setTitle(e.target.value);
-}
-function handleDescChange(e) {
-  setDescription(e.target.value);
-}
-
-function handleAuthorChange(e) {
-  setAuthor(e.target.value);
-}
-function handleDateChange(e) {
-  setDate(e.target.value);
-}
-
-function handleImgInputChange(e) {
-  const localImg = e.target.files[0];
-  const reader = new FileReader();
-  reader.readAsDataURL(localImg);
-  reader.onload = () => {
-    setImg(reader.result);
-  };
-}
-function handleImgCaptionChange(e) {
-  setImgCaption(e.target.value);
-}
-function handleBodyChange(e) {
-  setBody(e.target.value);
-}
 
 function handleChange(e) {
   const value = e.target.value;
-  setRecords({
-    ...records,
-    [e.target.value]: value,
+  setRecords({...records,[e.target.value]: value,
   });
 }
+
+
+const handleChange2 = (e) => {
+  const { name, value, type } = e.target;
+  setArticleData({ ...ArticleData, 
+    [name]: type === "file" ?  URL.createObjectURL(e.target.files[0])  : value });
+};
+
 const handleAdd = async (e) => {
   e.preventDefault();
   const dataSet = {
     // id: Math.random(),
-    title: title,
-    description: description,
-    author: author,
+    title: ArticleData.title,
+    description: ArticleData.description,
+    author: ArticleData.author,
     // date: date,
-    image: img,
-    img_caption: img_caption,
-    body: body,
+    image: ArticleData.image,
+    img_caption: ArticleData.img_caption,
+    body: ArticleData.body,
   };
   axios
     .put(`http://localhost:3000/records/${articleId}`, dataSet)
@@ -84,13 +56,7 @@ const handleAdd = async (e) => {
     .catch((error) => {
       console.log(error);
     });
-    setTitle("");
-    setDescription("");
-    setAuthor("");
-    setDate("");
-    setImg("");
-    setImgCaption("");
-    setBody("");
+ 
 };
 
 
@@ -101,7 +67,7 @@ const handleAdd = async (e) => {
         `http://localhost:3000/records/${articleId}`
       );
       const data = response.data;
-
+      
       return data;
     } catch (error) {
       // Handle any errors here
@@ -114,31 +80,12 @@ const handleAdd = async (e) => {
     const getArticleFromSever = async () => {
       const ArticleFromSever = await fetchArticles();
       setArticleData(ArticleFromSever);
-      // updateUseStateValues();
-
-
-        setTitle(ArticleData.title);
-        setDescription(ArticleData.description);
-        setAuthor(ArticleData.author);
-        // setDate(data.date);
-        setImg(ArticleData.image);
-        setImgCaption(ArticleData.image_caption);
-        setBody(ArticleData.body);
     }
 
     getArticleFromSever();
   }, []);
 
-  const updateUseStateValues = () =>{
-        setTitle(ArticleData.title);
-        setDescription(ArticleData.description);
-        setAuthor(ArticleData.author);
-        // setDate(data.date);
-        setImg(ArticleData.image);
-        setImgCaption(ArticleData.image_caption);
-        setBody(ArticleData.body);
-   
-  }
+
 
 
 return (
@@ -154,8 +101,8 @@ return (
             name="title"
             className="text-input"
             placeholder=""
-            value={title}
-            onChange={handleTitleChange}
+            value={ArticleData.title|| ''}
+            onChange={handleChange2}
           ></input>
           <h4>Description</h4>
           <input
@@ -163,8 +110,8 @@ return (
             name="description"
             className="text-input"
             placeholder=""
-            value={description}
-            onChange={handleDescChange}
+            value={ArticleData.description|| ''}
+            onChange={handleChange2}
           ></input>
           <h4>Author</h4>
           <input
@@ -172,8 +119,8 @@ return (
             name="author"
             className="text-input"
             placeholder=""
-            value={author}
-            onChange={handleAuthorChange}
+            value={ArticleData.author|| ''}
+            onChange={handleChange2}
           ></input>
           {/* <h4>Date</h4>
           <input
@@ -186,32 +133,32 @@ return (
           <h4>image</h4>
           <input
             type="file"
-            name="img"
+            name="image"
             accept="image/*"
-            defaultValue={img}
-            onChange={handleImgInputChange}
+            defaultValue={ArticleData.image}
+            onChange={handleChange2}
           />
           <br />
           <br />
-          <img src={img} />
+          <img src={ArticleData.image} />
           <br />
           <h4>Image Caption</h4>
           <input
             type="text"
             className="text-input"
             name="img_caption"
-            value={img_caption}
-            onChange={handleImgCaptionChange}
+            value={ArticleData.img_caption}
+            onChange={handleChange2}
           />
           <h4>Body</h4>
           <textarea
             type="text"
             className="text-area"
             name="body"
-            value={body}
+            value={ArticleData.body}
             col={60}
             rows={30}
-            onChange={handleBodyChange}
+            onChange={handleChange2}
           />
           <NavLink to="/" />
           <div>
