@@ -5,9 +5,14 @@
     align-items: center;
     min-height: 100vh; /* Center vertically */
   }
+
+  h4 {
+    color: var(--color-secondary);
+   
+  }
   
   .container-2 {
-    background-color: var(--color-secondary);
+    background-color: rgba(var(--color-secondary), 255, 255,255, 0.1em);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
@@ -32,7 +37,7 @@
   .text-input {
     width: 500px;
     padding: 10px;
-    border: 1px solid var(--color-tertiary);
+ 
     border-radius: 2px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -44,7 +49,7 @@
     appearance: none;
 	border: none;
 	outline: none;
-	border-bottom: .2em solid #E91E63;
+	border-bottom: .2em solid #0EF6CC;
 	background: rgba(#E91E63, .2);
 	border-radius: .2em .2em 0 0;
 	padding: .4em;
@@ -52,20 +57,18 @@
   }
   /* Hide the file input */
   input[type=date] {
-	border: .2em solid #E91E63;
-	padding: .8em .9em;
-	border-radius: 2em;
-	color: #E91E63;
-	 &::-webkit-datetime-edit { padding: 1em; }
-	 &::-webkit-datetime-edit-fields-wrapper { background: rgba(#E91E63, .2); }
-	&::-webkit-datetime-edit-text { color: red; padding: 0 0.1em; }
-	 &::-webkit-datetime-edit-month-field { color: #E91E63; }
-	 &::-webkit-datetime-edit-day-field { color: #E91E63; }
-	 &::-webkit-datetime-edit-year-field { color: #E91E63; }
+	border: .2em solid #0EF6CC;
+	padding: .1em .9em;
+	border-radius: 1em;
+	color: #1B2223;
+	 &::-webkit-datetime-edit { padding: 10px; }
+	 &::-webkit-datetime-edit-fields-wrapper { background: rgba(#0EF6CC, .2); }
+	&::-webkit-datetime-edit-text { color:#1B2223; padding: 0 0.1em; }
+	 &::-webkit-datetime-edit-month-field { color: #1B2223; }
+	 &::-webkit-datetime-edit-day-field { color: #1B2223; }
+	 &::-webkit-datetime-edit-year-field { color: #1B2223; }
 	&::-webkit-inner-spin-button { display: none; }
-	&::-webkit-calendar-picker-indicator {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23E91E63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E"); 
-	}
+
 }
   
   .text-input:focus {
@@ -77,7 +80,7 @@
   .text-area {
     width: 500px;
     padding: 10px;
-    border: 1px solid var(--color-tertiary);
+ 
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -85,11 +88,19 @@
     line-height: var(--line-height);
     font-weight: var(--font-weight);
     color: var(--color-primary);
+    border: none;
+    outline: none;
+    border-bottom: .2em solid #0EF6CC;
+    background: rgba(#0EF6CC, .2);
+    border-radius: .2em .2em 0 0;
+    padding: .4em;
+  
   }
   
   .text-area:focus {
     outline: none;
     border-color: var(--color-quaternary);
+    box-shadow: 5px 5px 5px rgba(25, 118, 210, 0.5);
   }
   
   button[type="submit"] {
@@ -108,7 +119,7 @@
     background-color: var(--color-quaternary);
   }
   
-  img {
+  .img {
     max-width: 200px;
     height: 200px ;
     border-radius: 5px;
@@ -121,8 +132,8 @@
   
   /* Style the label to look like a button */
   .file-label {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #0EF6CC;
+    color:#1B2223;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -130,5 +141,5 @@
   
   /* Style the label to look like a button when hovering */
   .file-label:hover {
-    background-color: #2980b9;
+    background-color: transparent;
   }

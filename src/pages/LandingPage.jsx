@@ -80,8 +80,8 @@ const LandingPage = () => {
           <img
             src={landingPageImg}
             className="split-screen-img"
-            alt=""
-            srcset=""
+            alt="hero page"
+       
           />
         </div>
       </div>

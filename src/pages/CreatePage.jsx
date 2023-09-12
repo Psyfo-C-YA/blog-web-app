@@ -3,7 +3,10 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 // import PropTypes from 'prop-types'
 import "../css/CreatePageStyles.css";
+import { useNavigate } from "react-router-dom";
+
 const CreatePage = () => {
+  const navigate = useNavigate();
   const [records, setRecords] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -73,15 +76,17 @@ const CreatePage = () => {
       .catch((error) => {
         console.log(error);
       });
-      setTitle("");
-      setDescription("");
-      setAuthor("");
-      setDate("");
-      setImg("");
-      setImgCaption("");
-      setBody("");
+    setTitle("");
+    setDescription("");
+    setAuthor("");
+    setDate("");
+    setImg("");
+    setImgCaption("");
+    setBody("");
+
+    navigate("/");
   };
-  
+
   return (
     <>
       <Navbar />
@@ -112,7 +117,6 @@ const CreatePage = () => {
               <input
                 type="text"
                 name="author"
-                
                 className="text-input"
                 placeholder=""
                 value={author}
@@ -126,23 +130,23 @@ const CreatePage = () => {
                 value={date}
                 onChange={handleDateChange}
               />
-            <h4>Image</h4>
-<label htmlFor="file-input" className="file-label">
-  Upload
-</label>
-<input
-  type="file"
-  id="file-input"
-  name="img"
-  accept="image/*"
-  className="file-input"
-  defaultValue={img}
-  onChange={handleImgInputChange}
-  style={{ display: "none" }}
-/>
+              <h4>Image</h4>
+              <label htmlFor="file-input" className="file-label">
+                Upload
+              </label>
+              <input
+                type="file"
+                id="file-input"
+                name="img"
+                accept="image/*"
+                className="file-input"
+                defaultValue={img}
+                onChange={handleImgInputChange}
+                style={{ display: "none" }}
+              />
               <br />
               <br />
-              {img && <img src={img} alt="Selected" />}
+              {img && <img src={img} alt="Selected" className="img" />}
               <h4>Image Caption</h4>
               <input
                 type="text"

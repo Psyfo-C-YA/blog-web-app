@@ -161,12 +161,18 @@ const [ArticleData, setArticleData] = useState([]);
                 onChange={handleDateChange}
               />
               <h4>Image</h4>
+              <label htmlFor="file-input" className="file-label">
+                Upload
+              </label>
               <input
                 type="file"
+                id="file-input"
                 name="img"
                 accept="image/*"
+                className="file-input"
                 defaultValue={img}
                 onChange={handleImgInputChange}
+                style={{ display: "none" }}
               />
               <br />
               <br />

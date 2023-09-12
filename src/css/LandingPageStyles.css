@@ -34,11 +34,13 @@ p {
 h1 {
     font-size: 3rem;
     color: var(--color-secondary);
+    text-align: center;
 }
 
 .split-screen-img {
     width: 45rem;
     height: 38rem;
+    
 
 }
 
