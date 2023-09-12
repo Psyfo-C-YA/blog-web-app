@@ -17,6 +17,11 @@ const [img, setImg] = useState("");
 const [img_caption, setImgCaption] = useState("");
 const [body, setBody] = useState("");
 
+const [ArticleData, setArticleData] = useState([]);
+  const { articleId } = useParams(); // Get the articleId from the URL parameters
+  const navigate = useNavigate();
+
+
 function handleTitleChange(e) {
   setTitle(e.target.value);
 }
@@ -57,21 +62,23 @@ const handleAdd = async (e) => {
   e.preventDefault();
   const dataSet = {
     // id: Math.random(),
-    title: title,
-    description: description,
-    author: author,
-    date: date,
-    image: img,
-    img_caption: img_caption,
-    body: body,
+    title: ArticleData.title,
+    description: ArticleData.description,
+    author: ArticleData.author,
+    date: ArticleData.date,
+    image: ArticleData.image,
+    img_caption: ArticleData.img_caption,
+    body: ArticleData.body,
   };
   axios
-    .post("http://localhost:3000/records", dataSet)
+    .put(`http://localhost:3000/records/${articleId}`, dataSet)
     .then((res) => {
       console.log(res.data);
       alert("Blog data save!!");
+      navigate("/");
       if (res.ok) {
         alert("Blog data save!!");
+        
       }
     })
     .catch((error) => {
@@ -86,9 +93,13 @@ const handleAdd = async (e) => {
     setBody("");
 };
 
-const [ArticleData, setArticleData] = useState([]);
-  const { articleId } = useParams(); // Get the articleId from the URL parameters
-  const navigate = useNavigate();
+
+
+  const handleChange2 = (e) => {
+    const { name, value, type } = e.target;
+    setArticleData({ ...ArticleData, 
+      [name]: type === "file" ?  URL.createObjectURL(e.target.files[0])  : value });
+  };
 
   const fetchArticles = async () => {
     try {
@@ -131,8 +142,8 @@ const [ArticleData, setArticleData] = useState([]);
                 name="title"
                 className="text-input"
                 placeholder=""
-                value={title}
-                onChange={handleTitleChange}
+                value={ArticleData.title|| ''}
+                onChange={handleChange2}
               />
               <h4>Description</h4>
               <input
@@ -140,8 +151,8 @@ const [ArticleData, setArticleData] = useState([]);
                 name="description"
                 className="text-input"
                 placeholder=""
-                value={description}
-                onChange={handleDescChange}
+                value={ArticleData.description|| ''}
+                onChange={handleChange2}
               />
               <h4>Author</h4>
               <input
@@ -149,15 +160,15 @@ const [ArticleData, setArticleData] = useState([]);
                 name="author"
                 className="text-input"
                 placeholder=""
-                value={author}
-                onChange={handleAuthorChange}
+                value={ArticleData.author|| ''}
+                onChange={handleChange2}
               />
               <h4>Date</h4>
               <input
                 type="date"
                 name="date"
                 className="text-input"
-                value={date}
+                // value={ArticleData.date}
                 onChange={handleDateChange}
               />
               <h4>Image</h4>
@@ -167,33 +178,32 @@ const [ArticleData, setArticleData] = useState([]);
               <input
                 type="file"
                 id="file-input"
-                name="img"
+                name="image"
                 accept="image/*"
-                className="file-input"
-                defaultValue={img}
-                onChange={handleImgInputChange}
+                defaultValue={ArticleData.image}
+                onChange={handleChange2}
                 style={{ display: "none" }}
               />
               <br />
               <br />
-              {img && <img src={img} alt="Selected" />}
+              {ArticleData.image && <img src={ArticleData.image} alt="Selected" />}
               <h4>Image Caption</h4>
               <input
                 type="text"
                 className="text-input"
                 name="img_caption"
-                value={img_caption}
-                onChange={handleImgCaptionChange}
+                value={ArticleData.img_caption}
+                onChange={handleChange2}
               />
               <h4>Body</h4>
               <textarea
                 type="text"
                 className="text-area"
                 name="body"
-                value={body}
+                value={ArticleData.body}
                 cols={20}
                 rows={2} // Reduced rows for better visibility in this example
-                onChange={handleBodyChange}
+                onChange={handleChange2}
               />
 
               <div>
