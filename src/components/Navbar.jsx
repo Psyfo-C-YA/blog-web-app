@@ -8,14 +8,14 @@ const Navbar = () => {
    
       <nav className='navbar'>
        
-        <NavLink to="/"> 
+        <NavLink to="/" className={"logo"}> 
           Logo
         </NavLink>
-        <span className='navbar__links'>
-        <NavLink to="/"> 
+        <span className={'navbar__links'}>
+        <NavLink to="/" className={"links"}> 
           Home
         </NavLink>
-        <NavLink to={"/createPage"}>
+        <NavLink to={"/createPage"} className={"links"}>
            Blog
         </NavLink>
         </span>
