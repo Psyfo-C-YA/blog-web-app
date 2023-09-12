@@ -1,41 +1,145 @@
-.container {
+
+  .container {
     display: flex;
-    justify-content: center;
-    padding-bottom: 2%;
-}
-h1  {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    min-height: 100vh; /* Center vertically */
+  }
+
+  h4 {
+    color: var(--color-secondary);
+   
+  }
+  
+  .container-2 {
+    background-color: rgba(var(--color-secondary), 255, 255,255, 0.1em);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    width: 700px;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 100%; 
+    text-align: center;/* Adjust the max-width as needed */
+  }
+  
+  .center-x {
     text-align: center;
-}
-.container-2 {
-    margin-top:5%;
-}
-.text-input{
-    width: 800px;
-    height: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: 18px;
-    border: none !important;
-    background-color: #f3f4f6;
-    margin-bottom: 20px;
+  }
+  
+
+  
+  .text-input {
+    width: 500px;
+    padding: 10px;
+ 
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    color: var(--color-primary);
+    transition: border-color 0.2s;
+    appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #0EF6CC;
+	background: rgba(#E91E63, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+
+  }
+  /* Hide the file input */
+  input[type=date] {
+	border: .2em solid #0EF6CC;
+	padding: .1em .9em;
+	border-radius: 1em;
+	color: #1B2223;
+	 &::-webkit-datetime-edit { padding: 10px; }
+	 &::-webkit-datetime-edit-fields-wrapper { background: rgba(#0EF6CC, .2); }
+	&::-webkit-datetime-edit-text { color:#1B2223; padding: 0 0.1em; }
+	 &::-webkit-datetime-edit-month-field { color: #1B2223; }
+	 &::-webkit-datetime-edit-day-field { color: #1B2223; }
+	 &::-webkit-datetime-edit-year-field { color: #1B2223; }
+	&::-webkit-inner-spin-button { display: none; }
 
 }
-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 30px;
-}
-.text-area {
-    width: 800px;
-    height: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+  
+  .text-input:focus {
+    outline: none;
+    border-color: var(--color-quaternary);
+    box-shadow: 5px 5px 5px rgba(25, 118, 210, 0.5);
+  }
+  
+  .text-area {
+    width: 500px;
+    padding: 10px;
+ 
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    color: var(--color-primary);
+    border: none;
+    outline: none;
+    border-bottom: .2em solid #0EF6CC;
+    background: rgba(#0EF6CC, .2);
+    border-radius: .2em .2em 0 0;
+    padding: .4em;
+  
+  }
+  
+  .text-area:focus {
+    outline: none;
+    border-color: var(--color-quaternary);
+    box-shadow: 5px 5px 5px rgba(25, 118, 210, 0.5);
+  }
+  
+  button[type="submit"] {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     font-size: 18px;
-    border: none !important;
-    background-color: #f3f4f6;
-    margin-bottom: 20px;
-}
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--color-quaternary);
+  }
+  
+  .img {
+    max-width: 200px;
+    height: 200px ;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .file-input {
+    display: none;
+  }
+  
+  /* Style the label to look like a button */
+  .file-label {
+    background-color: #0EF6CC;
+    color:#1B2223;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the label to look like a button when hovering */
+  .file-label:hover {
+    background-color: transparent;
+  }

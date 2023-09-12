@@ -116,88 +116,96 @@ const [ArticleData, setArticleData] = useState([]);
   }, []);
 
 
-return (
-  <>
-    <Navbar />
-    <div className="container">
-      <h1 className="center-x">Creating a Blog</h1>
-      <div className="container-2">
-        <form onSubmit={handleAdd} id="create-form">
-          <h4>Title</h4>
-          <input
-            type="text"
-            name="title"
-            className="text-input"
-            placeholder=""
-            value={title}
-            onChange={handleTitleChange}
-          ></input>
-          <h4>Description</h4>
-          <input
-            type="text"
-            name="description"
-            className="text-input"
-            placeholder=""
-            value={description}
-            onChange={handleDescChange}
-          ></input>
-          <h4>Author</h4>
-          <input
-            type="text"
-            name="author"
-            className="text-input"
-            placeholder=""
-            value={author}
-            onChange={handleAuthorChange}
-          ></input>
-          <h4>Date</h4>
-          <input
-            type="date"
-            name="date"
-            className="text-input"
-            value={date}
-            onChange={handleDateChange}
-          ></input>
-          <h4>image</h4>
-          <input
-            type="file"
-            name="img"
-            accept="image/*"
-            defaultValue={img}
-            onChange={handleImgInputChange}
-          />
-          <br />
-          <br />
-          <img src={img} />
-          <br />
-          <h4>Image Caption</h4>
-          <input
-            type="text"
-            className="text-input"
-            name="img_caption"
-            value={img_caption}
-            onChange={handleImgCaptionChange}
-          />
-          <h4>Body</h4>
-          <textarea
-            type="text"
-            className="text-area"
-            name="body"
-            value={body}
-            col={60}
-            rows={30}
-            onChange={handleBodyChange}
-          />
 
-          <div>
-            <br></br>
-            <button type="submit">Submit</button>
+    return (
+    <>
+      <Navbar />
+      <div className="container">
+        <h1 className="center-x">Updating a Blog</h1>
+        <div className="container-2">
+          <div className="form-container">
+            <form onSubmit={handleAdd} id="create-form">
+              <h4>Title</h4>
+              <input
+                type="text"
+                name="title"
+                className="text-input"
+                placeholder=""
+                value={title}
+                onChange={handleTitleChange}
+              />
+              <h4>Description</h4>
+              <input
+                type="text"
+                name="description"
+                className="text-input"
+                placeholder=""
+                value={description}
+                onChange={handleDescChange}
+              />
+              <h4>Author</h4>
+              <input
+                type="text"
+                name="author"
+                className="text-input"
+                placeholder=""
+                value={author}
+                onChange={handleAuthorChange}
+              />
+              <h4>Date</h4>
+              <input
+                type="date"
+                name="date"
+                className="text-input"
+                value={date}
+                onChange={handleDateChange}
+              />
+              <h4>Image</h4>
+              <label htmlFor="file-input" className="file-label">
+                Upload
+              </label>
+              <input
+                type="file"
+                id="file-input"
+                name="img"
+                accept="image/*"
+                className="file-input"
+                defaultValue={img}
+                onChange={handleImgInputChange}
+                style={{ display: "none" }}
+              />
+              <br />
+              <br />
+              {img && <img src={img} alt="Selected" />}
+              <h4>Image Caption</h4>
+              <input
+                type="text"
+                className="text-input"
+                name="img_caption"
+                value={img_caption}
+                onChange={handleImgCaptionChange}
+              />
+              <h4>Body</h4>
+              <textarea
+                type="text"
+                className="text-area"
+                name="body"
+                value={body}
+                cols={20}
+                rows={2} // Reduced rows for better visibility in this example
+                onChange={handleBodyChange}
+              />
+
+              <div>
+                <br />
+                <button type="submit">Update</button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
 };
 
 
