@@ -7,7 +7,17 @@ import { useNavigate } from "react-router-dom";
 
 const CreatePage = () => {
   const navigate = useNavigate();
-  const [records, setRecords] = useState("");
+  const [records, setRecords] = useState({    
+    title: "",
+    description: "",
+    author: "",
+    date: "",
+    img: "",
+    imgCaption: "",
+    body: "",
+  });
+  const [error, setErrors] = useState({});
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
@@ -52,8 +62,40 @@ const CreatePage = () => {
       [e.target.value]: value,
     });
   }
+
   const handleAdd = async (e) => {
     e.preventDefault();
+    if (title.length <= 5) {
+      alert("Title cannot be blank.");
+      return;
+    };
+    if (description.length <= 5) {
+      alert("Description cannot be less than 5 characters.");
+      return;
+    };
+    if (author.length == 0) {
+      alert("Authors name should be left blank.");
+      return;
+    };
+    if (img.length == 0) {
+      alert("Please upload an image.");
+      return;
+    };
+    if (img_caption.length == 0) {
+      alert("Please provide a caption for your image.");
+      return;
+    };
+    if (body.length == 0) {
+      alert("Please provide an article for your blog.");
+      return;
+    }
+    else if (body.length <= 200) {
+      alert("Your post should be at least 200 characters long");
+      return;
+    };
+
+    handleAdd();
+    
     const dataSet = {
       // id: Math.random(),
       title: title,
@@ -76,13 +118,6 @@ const CreatePage = () => {
       .catch((error) => {
         console.log(error);
       });
-    setTitle("");
-    setDescription("");
-    setAuthor("");
-    setDate("");
-    setImg("");
-    setImgCaption("");
-    setBody("");
 
     navigate("/");
   };
@@ -94,7 +129,9 @@ const CreatePage = () => {
         <h1 className="center-x">Creating a Blog</h1>
         <div className="container-2">
           <div className="form-container">
-            <form onSubmit={handleAdd} id="create-form">
+            <form 
+              onSubmit={handleAdd} 
+              id="create-form">
               <h4>Title</h4>
               <input
                 type="text"
